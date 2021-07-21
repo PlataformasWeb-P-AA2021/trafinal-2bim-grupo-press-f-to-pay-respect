@@ -55,6 +55,17 @@ def departamentos(request):
     informacion_template = {'departamentos': departamentos, 'departamentos_info': len(departamentos)}
     return render(request, 'departamentos.html', informacion_template)
 
+def personas2(request):
+        # a través del ORM de django se obtiene
+    # los registros de la entidad; el listado obtenido
+    # se lo almacena en una variable llamada
+    # estudiantes
+    personas = Persona.objects.all()
+    # en la variable tipo diccionario llamada informacion_template
+    # se agregará la información que estará disponible
+    # en el template
+    informacion_template = {'personas': personas, 'personas_info': len(personas)}
+    return render(request, 'departamentos.html', informacion_template)
 
 # ingreso de cuenta
 

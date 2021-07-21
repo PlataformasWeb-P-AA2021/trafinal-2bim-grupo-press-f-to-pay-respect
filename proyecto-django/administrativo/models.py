@@ -10,12 +10,12 @@ class Persona(models.Model):
     correo = models.EmailField(max_length=60)
 
     
-
     def __str__(self):
         return "%s %s %s %s" % (self.nombres,
                 self.apellidos,
                 self.cedula,
-                self.correo)        
+                self.correo)   
+    
 
 class Barrio(models.Model):
     nombre_barrio = models.CharField(max_length=60)
@@ -23,7 +23,7 @@ class Barrio(models.Model):
 
 
     def __str__(self):
-        return "%s %s %s %s" % (self.nombre_barrio,
+        return "%s %s" % (self.nombre_barrio,
                 self.siglas)  
 
 
@@ -45,6 +45,9 @@ class Casa(models.Model):
                 self.color_inmueble,
                 self.num_cuarto,
                 self.num_pisos)
+    def obtener_nombre_persona(self):
+            valor = (p.nombres for p in self.personacasa )
+            return valor 
 
 class Departamento(models.Model):
     propietario_nombre = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name="personadepartamento")
@@ -59,5 +62,5 @@ class Departamento(models.Model):
                 self.direccion,
                 self.barrio,
                 self.valor_bien,
-                self.num_cuartos,
+                self.num_cuarto,
                 self.valor_mensual)
