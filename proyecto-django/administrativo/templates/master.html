@@ -27,7 +27,7 @@
         {% endif %}
         <li><a href="{% url 'index'  %}">Inicio</a></li>
         <li><a href="{% url 'index'  %}">Agregar Edifico</a></li>
-        <li><a href="{% url 'index'  %}">Agregar Departamento</a></li>
+        <li><a href="{% url 'crear_departamento'  %}">Agregar Departamento</a></li>
         {% if user.is_authenticated %}
           <li><a href="{% url 'logout_view' %}">salir</a></li>
         {% else %}

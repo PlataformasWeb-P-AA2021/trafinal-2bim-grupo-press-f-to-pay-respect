@@ -82,8 +82,73 @@ def logout_view(request):
 
 #Fin ingreso
 
+#Crear Casa
+@login_required(login_url='/entrando/login/')
+def crear_casa(request):
+    """
+    """
+    if request.method=='POST':
+        formulario = CasaForm(request.POST)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save() # se guarda en la base de datos
+            return redirect(index)
+    else:
+        formulario = CasaForm()
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'crearCasa.html', diccionario)
 
 
+@login_required(login_url='/entrando/login/')
+def crear_departamento(request):
+    """
+    """
+    if request.method=='POST':
+        formulario = DepartamentoForm(request.POST)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save() # se guarda en la base de datos
+            return redirect(index)
+    else:
+        formulario = DepartamentoForm()
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'crear_Departamento.html', diccionario)
+
+def crear_persona(request):
+    """
+    """
+    if request.method=='POST':
+        formulario = PersonaForm(request.POST)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save() # se guarda en la base de datos
+            return redirect(index)
+    else:
+        formulario = PersonaForm()
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'crear_Departamento.html', diccionario)
+
+def crear_barrio(request):
+    """
+    """
+    if request.method=='POST':
+        formulario = BarrioForm(request.POST)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save() # se guarda en la base de datos
+            return redirect(index)
+    else:
+        formulario = BarrioForm()
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'crearBarrio.html', diccionario)
+
+# fin creacion de tablas
+
+# edicion y eliminacion 
 
 # crear vistas a través de viewsets
 class UserViewSet(viewsets.ModelViewSet):
