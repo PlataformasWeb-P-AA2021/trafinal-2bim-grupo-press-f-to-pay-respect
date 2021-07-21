@@ -1,0 +1,56 @@
+{% extends "master.html" %}
+
+
+{% block title %}
+  Listado de departamentos | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+
+<table id="tabla_datos">
+
+  <thead>
+  
+    <tr>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Barrio</th>
+      <th>Costo del Bien </th>
+      <th>Cuartos </th>
+      <th>Costo mensual </th>
+
+    </tr>
+  </thead>
+
+  {% for e in departamentos %}
+  <tr>
+    <td> {{e.propietario_nombre}} </td>
+    <td> {{e.direccion}} </td>
+    <td> {{e.barrio}}</td>
+    <td> {{e.valor_bien}}</td>
+    <td> {{e.num_cuarto}}</td>
+    <td> {{e.valor_mensual}}</td>
+    <td>
+
+        
+    </td>
+    <td> <a href="{}">ver</a> <br>
+      <a href="{}">editar <i class="fas fa-eye text-success fa-lg  mr-2"></i></a> <br>
+      <a href="{}"
+      onclick="return confirm('¿Está seguro de la eliminación?')" >
+      <i class="fas fa-eye text-success fa-lg  mr-2"></i>
+      eliminar</a>
+    </td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+
+{% endblock %}
