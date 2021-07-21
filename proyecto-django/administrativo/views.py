@@ -12,7 +12,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
 from administrativo.serializers import UserSerializer, GroupSerializer, \
-CasaSerializer, DepartamentoSerializer
+CasaSerializer, DepartamentoSerializer, PersonaSerializer, BarrioSerializer
 
 # importar las clases de models.py
 from administrativo.models import *
@@ -97,7 +97,7 @@ def crear_casa(request):
         formulario = CasaForm()
     diccionario = {'formulario': formulario}
 
-    return render(request, 'crearCasa.html', diccionario)
+    return render(request, 'crear_casa.html', diccionario)
 
 
 @login_required(login_url='/entrando/login/')
@@ -114,7 +114,7 @@ def crear_departamento(request):
         formulario = DepartamentoForm()
     diccionario = {'formulario': formulario}
 
-    return render(request, 'crear_Departamento.html', diccionario)
+    return render(request, 'crear_departamento.html', diccionario)
 
 def crear_persona(request):
     """
@@ -129,7 +129,7 @@ def crear_persona(request):
         formulario = PersonaForm()
     diccionario = {'formulario': formulario}
 
-    return render(request, 'crear_Departamento.html', diccionario)
+    return render(request, 'crear_persona.html', diccionario)
 
 def crear_barrio(request):
     """
@@ -144,7 +144,7 @@ def crear_barrio(request):
         formulario = BarrioForm()
     diccionario = {'formulario': formulario}
 
-    return render(request, 'crearBarrio.html', diccionario)
+    return render(request, 'crear_barrio.html', diccionario)
 
 # fin creacion de tablas
 
@@ -157,7 +157,7 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class GroupViewSet(viewsets.ModelViewSet):
@@ -166,7 +166,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class EdificioViewSet(viewsets.ModelViewSet):
@@ -177,7 +177,7 @@ class EdificioViewSet(viewsets.ModelViewSet):
     """
     queryset = Casa.objects.all()
     serializer_class = CasaSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class DepartamentoViewSet(viewsets.ModelViewSet):
@@ -187,3 +187,19 @@ class DepartamentoViewSet(viewsets.ModelViewSet):
     """
     queryset = Departamento.objects.all()
     serializer_class = DepartamentoSerializer
+
+class PersonaViewSet(viewsets.ModelViewSet):
+
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Persona.objects.all()
+    serializer_class = PersonaSerializer
+
+class BarrioViewSet(viewsets.ModelViewSet):
+
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Barrio.objects.all()
+    serializer_class = BarrioSerializer

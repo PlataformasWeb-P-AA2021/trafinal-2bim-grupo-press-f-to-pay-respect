@@ -49,9 +49,9 @@ class PersonaForm(ModelForm):
         fields = ['nombres', 'apellidos', 'cedula', 'correo']
         labels = {
             'nombres': _('Ingrese nombre por favor'),
-            'apellidos': _('Ingrese direccion por favor'),
-            'cedula': _('Ingrese barrio por favor'),
-            'correo': _('Ingrese costo total por favor'),
+            'apellidos': _('Ingrese appelidos por favor'),
+            'cedula': _('Ingrese cedula por favor'),
+            'correo': _('Ingrese correo por favor'),
         }
 
 class BarrioForm(ModelForm):
@@ -59,6 +59,6 @@ class BarrioForm(ModelForm):
         model = Barrio
         fields = ['nombre_barrio', 'siglas']
         labels = {
-            'nombre_barrio': _('Ingrese nombre por favor'),
-            'siglas': _('Ingrese direccion por favor'),
+            'nombre_barrio': _('Ingrese el nombre por favor'),
+            'siglas': _('Ingrese las siglas por favor'),
         }

@@ -18,7 +18,7 @@
   </head>
   <body>
   <header>
-    <img src="{% static 'images/logo.png' %}" height="10%" width="10%" alt="My image">
+    <!-- <img src="{% static 'images/logo.png' %}" height="10%" width="10%" alt="My image"> -->
     <h1>Aplicación Administración </h1>
     <nav class="top_menu">
       <ul>
@@ -26,8 +26,13 @@
           <li id="bienvenido" > <span class="nombre_usuario"> Bienvenido: {{user.username}} </span></li>
         {% endif %}
         <li><a href="{% url 'index'  %}">Inicio</a></li>
-        <li><a href="{% url 'index'  %}">Agregar Edifico</a></li>
+        <li><a href="{% url 'crear_casa'  %}">Agregar Casa</a></li>
         <li><a href="{% url 'crear_departamento'  %}">Agregar Departamento</a></li>
+        <li><a href="{% url 'crear_persona'  %}">Agregar Persona</a></li>
+        <li><a href="{% url 'crear_barrio'  %}">Agregar Barrio</a></li>
+        <li><a href="{% url 'casa'  %}">Ver Casas</a></li>
+        <li><a href="{% url 'departamentos'  %}">Ver Departamentos</a></li>
+
         {% if user.is_authenticated %}
           <li><a href="{% url 'logout_view' %}">salir</a></li>
         {% else %}
