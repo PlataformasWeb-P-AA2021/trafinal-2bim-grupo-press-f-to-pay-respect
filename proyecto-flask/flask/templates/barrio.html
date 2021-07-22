@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Teléfonos - 1</title>
+    <title>Teléfonos - 2</title>
   </head>
   <body>
     <h5>Listado de telefonos - {{numero}}</h5>
@@ -11,9 +11,8 @@
     {% for e in datos %}
 
     <ol>
-      <li><b>Teléfono: </b>{{e['telefono']}}</li>
-      <li><b>Tipo: </b>{{e['tipo']}}</li>
-      <li><b>Estudiante: </b>{{e['estudiante']}}</li>
+      <li><b>Nombre Barrio: </b>{{e['nombre_barrio']}}</li>
+      <li><b>Sigla: </b>{{e['siglas']}}</li>
     </ol>
     <hr>
     {% endfor%}

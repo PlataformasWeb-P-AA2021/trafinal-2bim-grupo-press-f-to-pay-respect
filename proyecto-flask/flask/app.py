@@ -6,35 +6,57 @@ app = Flask(__name__, template_folder='templates')
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return "<p>Hello, Ricardo!</p>"
 
 
-@app.route("/losestudiantes")
-def los_estudiantes():
+@app.route("/departamento")
+def los_departamentos():
     """
     """
-    r = requests.get("http://127.0.0.1:8000/api/estudiantes/",
-            auth=('dani', '123'))
-    estudiantes = json.loads(r.content)['results']
-    numero_estudiantes = json.loads(r.content)['count']
-    return render_template("losestudiantes.html", estudiantes=estudiantes,
-    numero_estudiantes=numero_estudiantes)
+    r = requests.get("http://127.0.0.1:8000/api/departamento/",
+            auth=('admin', '123'))
+    departamento = json.loads(r.content)['results']
+    numero_Departamentos = json.loads(r.content)['count']
+    return render_template("departamento.html", departamento=departamento,
+    numero_Departamentos=numero_Departamentos)
 
 
-@app.route("/lostelefonos")
-def los_telefonos():
+@app.route("/casa")
+def las_casas():
     """
     """
-    r = requests.get("http://127.0.0.1:8000/api/numerost/",
-            auth=('dani', '123'))
+    r = requests.get("http://127.0.0.1:8000/api/casa/",
+            auth=('admin', '123'))
     datos = json.loads(r.content)['results']
     numero = json.loads(r.content)['count']
-    return render_template("lostelefonos.html", datos=datos,
+    return render_template("casas.html", datos=datos,
     numero=numero)
 
+@app.route("/personas")
+def personas():
+    """
+    """
+    r = requests.get("http://127.0.0.1:8000/api/persona/",
+            auth=('admin', '123'))
+    datos = json.loads(r.content)['results']
+    numero = json.loads(r.content)['count']
+    return render_template("personas.html", datos=datos,
+    numero=numero)
 
-@app.route("/lostelefonosdos")
-def los_telefonos_dos():
+@app.route("/barrio")
+def barrio():
+    """
+    """
+    r = requests.get("http://127.0.0.1:8000/api/barrio/",
+            auth=('admin', '123'))
+    datos = json.loads(r.content)['results']
+    numero = json.loads(r.content)['count']
+    return render_template("barrio.html", datos=datos,
+    numero=numero)
+
+######################################################
+@app.route("/personasdasda")
+def dasda():
     """
     """
     r = requests.get("http://127.0.0.1:8000/api/numerost/",
@@ -44,13 +66,13 @@ def los_telefonos_dos():
     datos2 = []
     for d in datos:
         datos2.append({'telefono':d['telefono'], 'tipo':d['tipo'],
-        'estudiante': obtener_estudiante(d['estudiante'])})
+        'estudiante': dasda(d['estudiante'])})
     return render_template("lostelefonosdos.html", datos=datos2,
     numero=numero)
 
 # funciones ayuda
 
-def obtener_estudiante(url):
+def dasda(url):
     """
     """
     r = requests.get(url, auth=('dani', '123'))

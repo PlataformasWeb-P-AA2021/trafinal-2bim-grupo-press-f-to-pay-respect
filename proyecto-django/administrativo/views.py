@@ -55,18 +55,6 @@ def departamentos(request):
     informacion_template = {'departamentos': departamentos, 'departamentos_info': len(departamentos)}
     return render(request, 'departamentos.html', informacion_template)
 
-def personas2(request):
-        # a través del ORM de django se obtiene
-    # los registros de la entidad; el listado obtenido
-    # se lo almacena en una variable llamada
-    # estudiantes
-    personas = Persona.objects.all()
-    # en la variable tipo diccionario llamada informacion_template
-    # se agregará la información que estará disponible
-    # en el template
-    informacion_template = {'personas': personas, 'personas_info': len(personas)}
-    return render(request, 'departamentos.html', informacion_template)
-
 # ingreso de cuenta
 
 def ingreso(request):
@@ -103,13 +91,13 @@ def crear_casa(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save() # se guarda en la base de datos
-            return redirect(index)
+            return redirect(casa)
     else:
         formulario = CasaForm()
     diccionario = {'formulario': formulario}
 
     return render(request, 'crear_casa.html', diccionario)
-
+ 
 
 @login_required(login_url='/entrando/login/')
 def crear_departamento(request):
@@ -120,7 +108,7 @@ def crear_departamento(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save() # se guarda en la base de datos
-            return redirect(index)
+            return redirect(departamentos)
     else:
         formulario = DepartamentoForm()
     diccionario = {'formulario': formulario}
@@ -160,6 +148,59 @@ def crear_barrio(request):
 # fin creacion de tablas
 
 # edicion y eliminacion 
+@login_required(login_url='/entrando/login/')
+def eliminar_casa(request, id):
+    """
+    """
+    eliminar = Casa.objects.get(pk=id)
+    eliminar.delete()
+    return redirect(casa)
+
+@login_required(login_url='/entrando/login/')
+def eliminar_departamento(request, id):
+    """
+    """
+    eliminar = Departamento.objects.get(pk=id)
+    eliminar.delete()
+    return redirect(departamentos)
+
+# editar
+
+@login_required(login_url='/entrando/login/')
+def editar_departamento(request, id):
+    """
+    """
+    casa = Departamento.objects.get(pk=id)
+    if request.method=='POST':
+        formulario = DepartamentoForm(request.POST, instance=casa)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(departamentos)
+    else:
+        formulario = DepartamentoForm(instance=casa)
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'editarDepartamento.html', diccionario)
+
+@login_required(login_url='/entrando/login/')
+def editar_casa(request, id):
+    """
+    """
+    casas = Casa.objects.get(pk=id)
+    if request.method=='POST':
+        formulario = CasaForm(request.POST, instance=casas)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(casa)
+    else:
+        formulario = CasaForm(instance=casas)
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'editarCasa.html', diccionario)
+
+
 
 # crear vistas a través de viewsets
 class UserViewSet(viewsets.ModelViewSet):
@@ -180,7 +221,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     # permission_classes = [permissions.IsAuthenticated]
 
 
-class EdificioViewSet(viewsets.ModelViewSet):
+class CasaViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     This viewset automatically provides `list`, `create`, `retrieve`,

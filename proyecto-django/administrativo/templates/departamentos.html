@@ -13,7 +13,7 @@
   <thead>
   
     <tr>
-      <th>Nombre</th>
+      <th>Propietario</th> 
       <th>Direccion</th>
       <th>Barrio</th>
       <th>Costo del Bien </th>
@@ -25,9 +25,15 @@
 
   {% for e in departamentos %}
   <tr>
-    <td> {{e.propietario_nombre}} </td>
+    <td> Nombre: {{e.propietario_nombre.nombres}} {{e.propietario_nombre.apellidos}}
+    <br> Cedula: {{e.propietario_nombre.cedula}}
+    <br> Correo: {{e.propietario_nombre.correo}}
+
+    </td>
     <td> {{e.direccion}} </td>
-    <td> {{e.barrio}}</td>
+    <td> Nombre: {{e.barrio.nombre_barrio}}
+      <br> Siglas: {{e.barrio.siglas}}
+    </td>
     <td> {{e.valor_bien}}</td>
     <td> {{e.num_cuarto}}</td>
     <td> {{e.valor_mensual}}</td>
@@ -35,9 +41,9 @@
 
         
     </td>
-    <td> <a href="{}">ver</a> <br>
-      <a href="{}">editar <i class="fas fa-eye text-success fa-lg  mr-2"></i></a> <br>
-      <a href="{}"
+    <td> <a></a> <br>
+      <a href="{% url 'editar_departamento' e.id %}">editar </a><i class="fas fa-eye text-success fa-lg  mr-2"></i> <br>
+      <a href="{% url 'eliminar_departamento' e.id %}"
       onclick="return confirm('¿Está seguro de la eliminación?')" >
       <i class="fas fa-eye text-success fa-lg  mr-2"></i>
       eliminar</a>

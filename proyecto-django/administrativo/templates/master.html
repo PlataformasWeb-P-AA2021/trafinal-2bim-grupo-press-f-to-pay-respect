@@ -30,8 +30,7 @@
         <li><a href="{% url 'crear_departamento'  %}">Agregar Departamento</a></li>
         <li><a href="{% url 'crear_persona'  %}">Agregar Persona</a></li>
         <li><a href="{% url 'crear_barrio'  %}">Agregar Barrio</a></li>
-        <li><a href="{% url 'casa'  %}">Ver Casas</a></li>
-        <li><a href="{% url 'departamentos'  %}">Ver Departamentos</a></li>
+ 
 
         {% if user.is_authenticated %}
           <li><a href="{% url 'logout_view' %}">salir</a></li>

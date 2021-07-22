@@ -26,7 +26,7 @@ from administrativo import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'casa', views.EdificioViewSet)
+router.register(r'casa', views.CasaViewSet)
 router.register(r'departamento', views.DepartamentoViewSet)
 router.register(r'persona', views.PersonaViewSet)
 router.register(r'barrio', views.BarrioViewSet)

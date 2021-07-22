@@ -45,9 +45,6 @@ class Casa(models.Model):
                 self.color_inmueble,
                 self.num_cuarto,
                 self.num_pisos)
-    def obtener_nombre_persona(self):
-            valor = (p.nombres for p in self.personacasa )
-            return valor 
 
 class Departamento(models.Model):
     propietario_nombre = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name="personadepartamento")
