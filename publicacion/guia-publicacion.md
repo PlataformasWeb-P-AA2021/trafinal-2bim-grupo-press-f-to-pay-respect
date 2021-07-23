@@ -9,7 +9,10 @@
   from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
   agregamos en urlpatterns, despues []
+
+
 </code>
+
   urlpatterns += staticfiles_urlpatterns()
 4 - Recopilar el contenido de la carpeta mediante la linea: python manage.py collectstatic
 5 - Levantamos el proyecto en gunicorn con: gunicorn --bind 0.0.0.0:8000 trabajoFinal.wsgi 
