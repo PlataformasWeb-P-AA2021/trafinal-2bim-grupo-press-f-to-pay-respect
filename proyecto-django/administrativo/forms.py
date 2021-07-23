@@ -16,13 +16,13 @@ class CasaForm(ModelForm):
         fields = ['propietario_nombre',  'direccion', 'barrio', 
         'valor_bien', 'color_inmueble', 'num_cuarto', 'num_pisos']
         labels = {
-            'propietario_nombre': _('Ingrese nombre por favor'),
+            'propietario_nombre': _('Ingrese nombre de propietario por favor'),
             'direccion': _('Ingrese direccion por favor'),
             'barrio': _('Ingrese barrio por favor'),
-            'valor_bien': _('Ingrese valor_bien por favor'),
-            'color_inmueble': _('Ingrese color_inmueble por favor'),
-            'num_cuarto': _('Ingrese num_cuarto por favor'),
-            'num_pisos': _('Ingrese num_pisos por favor'),
+            'valor_bien': _('Ingrese valor bien por favor'),
+            'color_inmueble': _('Ingrese color del inmueble por favor'),
+            'num_cuarto': _('Ingrese numero de cuartos por favor'),
+            'num_pisos': _('Ingrese numero de pisos por favor'),
         }
 
 
