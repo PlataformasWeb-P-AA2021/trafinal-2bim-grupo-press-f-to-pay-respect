@@ -19,16 +19,16 @@
 6 - En el directorio /etc/systemd/system/ agregar un archivo con la siguiente extension "nombre.service" esto debe ser con sudo
 7 - Iniciar y habilitar el proceso mediante los siguientes comandos
 
-  sudo systemctl start nombre
-  sudo systemctl enable nombre
+<code>  sudo systemctl start nombre </code>
+<code>  sudo systemctl enable nombre </code>
 8 - Verificar que todo este correcto mediante cono: sudo systemctl status nombre
 
 9 - Iniciamos con los comandos para el servicio:
 
-sudo service nginx start
-sudo service nginx stop
-sudo service nginx restart
-sudo service nginx statu
+<code> sudo service nginx start</code>
+<code> sudo service nginx stop</code>
+<code> sudo service nginx restart</code>
+<code> sudo service nginx statu</code>
 
 10 - Crear el archivo sites-available de nginx, con sudo ejemplo de ruta "/etc/nginx/sites-available"
 11 - Creamos con sudo touch /etc/nginx/sites-available/nombre
