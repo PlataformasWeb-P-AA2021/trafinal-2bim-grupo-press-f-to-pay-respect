@@ -3,15 +3,15 @@
 2 - Agregar la variable ALLOWED_HOSTS en el archivo settings.py para permitir el acceso a gunicorn desde el servidor web ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
 
 3 - Agregar en el archivo urls.py lo siguiente
-<code>
+
   importamos:
   
-  from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+  <code>from django.contrib.staticfiles.urls import staticfiles_urlpatterns</code>
 
   agregamos en urlpatterns, despues []
 
 
-</code>
+
 
   urlpatterns += staticfiles_urlpatterns()
 4 - Recopilar el contenido de la carpeta mediante la linea: python manage.py collectstatic
