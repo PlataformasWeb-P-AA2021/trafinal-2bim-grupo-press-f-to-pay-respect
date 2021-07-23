@@ -24,12 +24,12 @@
 8 - Verificar que todo este correcto mediante cono: sudo systemctl status nombre
 
 9 - Iniciamos con los comandos para el servicio:
-
-<code> sudo service nginx start</code>
-<code> sudo service nginx stop</code>
-<code> sudo service nginx restart</code>
-<code> sudo service nginx statu</code>
-
+<pre>
+  <code> sudo service nginx start</code>
+  <code> sudo service nginx stop</code>
+  <code> sudo service nginx restart</code>
+  <code> sudo service nginx statu</code>
+</pre>
 10 - Crear el archivo sites-available de nginx, con sudo ejemplo de ruta "/etc/nginx/sites-available"
 11 - Creamos con sudo touch /etc/nginx/sites-available/nombre
 
