@@ -15,7 +15,7 @@
   urlpatterns += staticfiles_urlpatterns()
 </pre>
 4 - Recopilar el contenido de la carpeta mediante la linea:   <code> python manage.py collectstatic  </code>
-5 - Levantamos el proyecto en gunicorn con: gunicorn <code> --bind 0.0.0.0:8000 trabajoFinal.wsgi </code>
+5 - Levantamos el proyecto en gunicorn con: gunicorn <code> --bind 0.0.0.0:8000 nombre.wsgi </code>
 
 ---Aqui se termina la parte de Guinicorn---
 
