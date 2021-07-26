@@ -115,6 +115,7 @@ def crear_departamento(request):
 
     return render(request, 'crear_departamento.html', diccionario)
 
+@login_required(login_url='/entrando/login/')
 def crear_persona(request):
     """
     """
@@ -130,6 +131,7 @@ def crear_persona(request):
 
     return render(request, 'crear_persona.html', diccionario)
 
+@login_required(login_url='/entrando/login/')
 def crear_barrio(request):
     """
     """

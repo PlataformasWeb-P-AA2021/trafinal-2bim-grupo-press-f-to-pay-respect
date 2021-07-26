@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import pymysql
-import os
 
 pymysql.install_as_MySQLdb()
 
@@ -141,8 +140,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static/')
-STATIC_URL = '/static/'
+STATIC_ROOT = '/home/ricardo/Escritorio/trabajos/trafinal-2bim-grupo-press-f-to-pay-respect/proyecto-django/'
+
+STATIC_URL = '/home/ricardo/Escritorio/trabajos/trafinal-2bim-grupo-press-f-to-pay-respect/proyecto-django/static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
