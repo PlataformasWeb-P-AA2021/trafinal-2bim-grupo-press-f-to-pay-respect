@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-ep0qfzq6#kqg5ik90!&hs=vm=#+9q1ksrk=s&i@trk7l_!+=dg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -140,9 +140,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = '/home/ricardo/Escritorio/trabajos/trafinal-2bim-grupo-press-f-to-pay-respect/proyecto-django/'
+STATIC_ROOT = '/home/ricardo/trafinal-2bim-grupo-press-f-to-pay-respect/proyecto-django/'
 
-STATIC_URL = '/home/ricardo/Escritorio/trabajos/trafinal-2bim-grupo-press-f-to-pay-respect/proyecto-django/static/'
+STATIC_URL = '/home/ricardo/trafinal-2bim-grupo-press-f-to-pay-respect/proyecto-django/static/'
 
 
 # Default primary key field type
